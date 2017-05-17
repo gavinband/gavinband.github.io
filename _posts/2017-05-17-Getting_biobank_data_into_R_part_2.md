@@ -6,7 +6,7 @@ categories: biobank BGEN
 ---
 
 Thanks to [RStudio]() and [Rcpp]() I've [succeeded]({{ site.baseurl }}{% post_url 2017-05-16-Getting_biobank_data_into_R %}
-) in getting an Rcpp package up and running.  Right-ho.  Now it's down to writing the C++ code that implements the functionality.
+) in getting an Rcpp package up and running.  Right-ho.  Now it's down to writing the C++ code that does the work.
 
 ## Implementing the interface ##
 
@@ -17,8 +17,7 @@ Rcpp::List load(
 	Rcpp::DataFrame ranges
 ) {
 ```
-
-Here's how we'll do it.  
+to load data from a bgen file.  Here's how we'll do it.  
 
 ### Opening the files ###
 First, we'll open the bgen file and its index.  For this I will use the `genfile::bgen::View` and `genfile::bgen::IndexQuery` classes that are part of the implementation of [bgenix]() in the bgen repo.  (The relevant `#include`s need to go at the top of the file.)
