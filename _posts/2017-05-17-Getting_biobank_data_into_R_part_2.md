@@ -6,7 +6,7 @@ categories: biobank BGEN
 ---
 
 Thanks to [RStudio]() and [Rcpp]() I've [succeeded]({{ site.baseurl }}{% post_url 2017-05-16-Getting_biobank_data_into_R %}
-).  Right-ho.  Now it's down to writing the C++ code that implements the functionality.
+) in getting an Rcpp package up and running.  Right-ho.  Now it's down to writing the C++ code that implements the functionality.
 
 ## Implementing the interface ##
 
