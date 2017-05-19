@@ -102,6 +102,6 @@ Phew.
 
 ## Implementing the interface ##
 
-Well... that'll be the subject of the [next post]({{ site.baseurl }}{% post_url 2017-05-17-Getting_biobank_data_into_R_part_2 %})
+Well... that'll be the subject of the [next post]({{ site.baseurl }}{% post_url 2017-05-17-Getting_biobank_data_into_R_part_2 %}).
 
 
