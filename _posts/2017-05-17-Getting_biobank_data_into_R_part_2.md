@@ -192,4 +192,4 @@ RSID_4           01     4000   RSID_4       A       G
 ```
 It works!
 
-Of course - we haven't actually got any genotype data yet.  For that, see the next post.
+Of course - we haven't actually got any genotype data yet.  For that, see the [next post]({{ site.baseurl }}{% post_url 2017-05-18-Getting_biobank_data_into_R_part_3 %})
