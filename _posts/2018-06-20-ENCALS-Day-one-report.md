@@ -76,4 +76,4 @@ Study rationale: previously, Rasagliline showed a significant, dose-dependent th
 
 ---
 
-More [tomorrow]((({{ site.baseurl }}{% post_url 2018-06-21-ENCALS-Day-two-report %})).
+More [tomorrow]({{ site.baseurl }}{% post_url 2018-06-21-ENCALS-Day-two-report %}).
