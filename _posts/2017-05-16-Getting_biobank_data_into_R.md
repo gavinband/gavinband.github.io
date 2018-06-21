@@ -69,10 +69,12 @@ just above the function declaration.  I put this in a file src/load.cpp.  I hit 
 list()
 ```
 
-## Making it link ##
-Now comes the hard part.  I've got some existing C++ code in the bgen package.  It is built into object files and libraries with the bgen package (that uses the [waf build system]().)  I need to link it into this package.  How?
+(Behind the scenes, this seems to call Rcpp's `compileAttributes()`, which generates two files, `src/RcppExports.cpp` and `R/RcppExports.R`.  Those files contain a pair of functions that glue the R and C++ code together.  But since this Just Seems To Work(TM), no point in worrying about that for now.
 
-Several lost hours later I've reached the following solution.  First, I've chosen to distribute rbgen as a subdirectory of the bgen repo.  This means I can link directly to the build results from that package, rather than building them all over again.  Second, it turns out the build is controlled by a file called `Makevars` that also lives in the `src/` directory.  `Makevars` is a [makefile]().  But it is called `Makevars`.  Go figure.  Anyway `Makevars` does not seem to exist to start off with, so I made one.  Here's what it looks like:
+## Making it link ##
+Now comes the hard part.  I've got some existing C++ code in the bgen package.  It is built into object files and libraries with the bgen package (that uses the [waf build system](https://github.com/waf-project/waf).)  I need to link it into this package.  How?
+
+Several lost hours later I've reached the following solution.  First, I've chosen to distribute rbgen as a subdirectory of the bgen repo.  This means I can link directly to the build results from that package, rather than building them all over again.  Second, it turns out the build is controlled by a file called `Makevars` that also lives in the `src/` directory.  `Makevars` is a [makefile](https://en.wikipedia.org/wiki/Makefile).  But it is called `Makevars`.  Go figure.  Anyway `Makevars` does not seem to exist to start off with, so I made one.  Here's what it looks like:
 ```
 # in src/Makevars
 PKG_CPPFLAGS = \
@@ -96,12 +98,30 @@ In short:
 * `OBJECTS` lists object files and static libraries that need to be compiled and/or linked.
 * `SHLIB` is the name of the target shared library - it turns out to be called `src/rbgen.so`.
 
-The finished library depends on the object files (make magically builds the missing ones) and also on `Makevars`, so it gets rebuilt if any of these change.
+The finished library depends on the object files (make magically builds the missing ones) and also on `Makevars`, so it gets rebuilt if any of these change.  
+
+We can checking this worked by rebuilding (e.g. Apple-shift-B in Rstudio) and then peeking at the symbols in the built shared library file.  E.g. using nm:
+```sh
+$ nm src/rbgen.so
+                 U ATTRIB
+0000000000146320 r BIT_mask
+00000000001467c0 r BIT_mask
+                 U CAR
+                 U CDDR
+                 U CDR
+0000000000144e60 r CSWTCH.137
+000000000037bc50 d DW.ref._ZTIN2db15ConnectionErrorE
+000000000037bc60 d DW.ref._ZTIN2db18StatementStepErrorE
+000000000037bc28 d DW.ref._ZTIN4Rcpp10eval_errorE
+(etc.)
+```
+
+The output lists a whole bunch of symbols, most of which come from the various libraries I linked from the bgen repo, confirming that linking is working.
 
 Phew.
 
 ## Implementing the interface ##
 
-Well... that'll be the subject of the [next post]({{ site.baseurl }}{% post_url 2017-05-17-Getting_biobank_data_into_R_part_2 %}).
+I'll start on that in the [next post]({{ site.baseurl }}{% post_url 2017-05-17-Getting_biobank_data_into_R_part_2 %}).
 
 

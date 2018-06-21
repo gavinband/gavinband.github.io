@@ -5,8 +5,7 @@ date:   2017-05-17
 categories: biobank BGEN
 ---
 
-Thanks to [RStudio]() and [Rcpp]() I've [succeeded]({{ site.baseurl }}{% post_url 2017-05-16-Getting_biobank_data_into_R %}
-) in getting an Rcpp package up and running.  Right-ho.  Now it's down to writing the C++ code that does the work.
+Thanks to [RStudio]() and [Rcpp]() I've succeeded in [getting an Rcpp package up and running and making it link to the bgen code]({{ site.baseurl }}{% post_url 2017-05-16-Getting_biobank_data_into_R %}).  Now it's down to writing the C++ code that makes it actually work.
 
 ## Implementing the interface ##
 
@@ -31,7 +30,7 @@ First, we'll open the bgen file and its index.  For this I will use the `genfile
   View::UniquePtr view = View::create( filename ) ;
   IndexQuery::UniquePtr query = IndexQuery::create( filename + ".bgi" ) ;
 ```
-Good!  Files successfully opened (or not, in which case an exception will be thrown, we'll see how that works in a minute.)
+Good!  Files successfully opened (or not, in which case an exception will be thrown, we'll deal with that later if we need to).
 
 (The `UniquePtr`s here are typedefs for `std::auto_ptr`, which represents unique ownership of the pointed-to objects.  These days we are supposed to use `std::unique_ptr` instead, but I'm keeping to `std::auto_ptr` for the moment to keep the code working on older compilers.)
 
@@ -40,10 +39,16 @@ Good!  Files successfully opened (or not, in which case an exception will be thr
 Next we set up the query.  I'm going to assume that `ranges` is a dataframe specifying a set of genomic ranges, each with a specified `chromosome`, `start` coordinate, and `end` coordinate.  (By convention intervals in bgen are taken to be 1-based, closed intervals).  Let's add these to the query:
 ```
   for( std::size_t i = 0; i < ranges.nrows(); ++i ) {
-    query->include_range( genfile::bgen::GenomicRange( ranges['chromosome'][i], ranges['start'][i], ranges['end'][i] ) ;
+    query->include_range(
+      genfile::bgen::GenomicRange(
+        ranges['chromosome'][i],
+        ranges['start'][i],
+        ranges['end'][i]
+      )
+    ) ;
   }
 ```
-Now I told you the API isn't perfect.  The query currently needs to be initialised before it can be added to the view:
+Now: I told you the API isn't perfect.  The query currently needs to be initialised before it can be added to the view:
 ```
   query->initialise() ;
   view->set_query( query ) ;
@@ -58,7 +63,7 @@ The `load()` function has to return quite a lot of information:
 * The ploidy of each sample at each variant
 * The genotype probabilities for each sample at each variant
 
-In addition, these need nice things like useful row and column names.  Let's set up storage for the data we'll need:
+In addition, these need nice things like useful row and column names.  So there's a bit of fiddling around to do.  First let's set up storage for the data we'll need:
 ```
   std::size_t const number_of_variants = view->number_of_variants() ;
 
@@ -74,7 +79,7 @@ In addition, these need nice things like useful row and column names.  Let's set
 ```
 (`Rcpp::StringVector` [turns out to be](http://dirk.eddelbuettel.com/code/rcpp/html/instantiation_8h_source.html) the same thing as `Rcpp:CharacterVector`.  I dunno why there are two names for the same thing.)
 
-We'll return the genotype data as a 3 dimensional array indexed by the variant, the sample, and the genotype.  (For now we'll assume at most three genotypes exist).  Likewise the ploidy will be stored as a 2d array:
+We'll return the genotype data as a 3 dimensional array indexed by the variant, the sample, and the genotype.  (For now we'll assume at most three genotypes exist).  Likewise the ploidy will be stored as a 2d array.  In this version of Rcpp there seems to be no multidimensional array class, and the right way to set this up is to pass a `Dimension` object to the vector constructor instead:
 ```
   Dimension data_dimension = Dimension( number_of_variants, number_of_samples, 3ul ) ;
   Dimension ploidy_dimension = Dimension( number_of_variants, number_of_samples ) ;
