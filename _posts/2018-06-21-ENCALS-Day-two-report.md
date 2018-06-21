@@ -13,9 +13,9 @@ For day one, see [here]({{ site.baseurl }}{% post_url 2018-06-20-ENCALS-Day-one-
 
 I confess I was a bit nonplussed by the yesterday's first session, in which it was suggested that hyperexcitable neurons are important (but doubt was cast on how specific to ALS this is), that exercise & athleticism may be associated (but evidence wasn't presented except the [Italian footballers](https://www.ncbi.nlm.nih.gov/pubmed/19267274); surely it'd be true for all the other footballers in Europe too?), that electric shocks or exposure to high frequency electric/magnetic fields may be causal (though there's some doubt about confounding).  In the second session we heard that telomere length is associated with increased risk, an opposite effect to that [found in mice](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4789589/).  
 
-Of course, any of these could be true, but surely they can't *all* be true.  (But given the rarity of disease, and the they could all be noise.)
+Of course, any of these could be true, but surely they can't *all* be true.  (But given the rarity of disease, they could all be noise.)
 
-Also, it's clearly not known how currently-used drugs work, and anyway they don't seem to work very well.  
+It's also clearly not known how currently-used drugs work, and anyway they don't seem to work very well.  
 
 So what I think this says is the field is still searching for the real causes.
 	
