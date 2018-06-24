@@ -5,14 +5,15 @@ date:   2018-06-20
 categories: ALS
 ---
 
-I'm at the ENCALS conference, at the [Said Business School](https://www.sbs.ox.ac.uk) in [Oxford](https://www.openstreetmap.org/search?query=oxford).
-It's pretty packed in here - apparently the conference is over-subscribed and I couldn't get into the main lecture hall at first - but later I sneaked in.
+I know very little about [the disease known as Amyotrophic Lateral Sclerosis or Motor Neurone Disease](https://en.wikipedia.org/wiki/Amyotrophic_lateral_sclerosis).  I've decided to come to the [ENCALS conference in Oxford](https://www.encals.eu/meetings/encals-meeting-2018-oxford-england/) to find out.  To this end I'm going to do what [I've](https://gavinband.wordpress.com/2010/10/07/gcd-2010-day-1/) [sometimes](https://gavinband.wordpress.com/2011/04/12/emgm-2011/) [done](https://gavinband.wordpress.com/2011/04/12/emgm-2011-day-two/) [before](https://gavinband.wordpress.com/2014/06/08/gem-2014-day-one/): write down everything everyone says and then try to summarise...let's see how it goes.
 
-This conference is about Amyotrophic Lateral Sclerosis (ALS), known also as Motor Neurone Disease (MND).  I basically know nothing about MND, so I'm going to do what [I've](https://gavinband.wordpress.com/2010/10/07/gcd-2010-day-1/) [sometimes](https://gavinband.wordpress.com/2011/04/12/emgm-2011/) [done](https://gavinband.wordpress.com/2011/04/12/emgm-2011-day-two/) [before](https://gavinband.wordpress.com/2014/06/08/gem-2014-day-one/): write down everything everyone says...let's see how it goes:
+(See also my notes on [day two]({{ site.baseurl }}{% post_url 2018-06-21-ENCALS-Day-two-report %}) or [day three]({{ site.baseurl }}{% post_url 2018-06-22-ENCALS-Day-three-report %})).
 
 ## Wednesday 20th
 ---
 ### Session 1
+
+It's pretty packed (not to mention hot) in here - apparently the conference is over-subscribed and I couldn't get into the main lecture hall at first - but later I sneaked in.
 
 *Leonard van der Berg* ([Utrecht](https://ern-euro-nmd.eu/contact/leonard-van-den-berg/)) opens conference with a couple of slides from previous meetings and a quiz on Britishness. (Sample questions: "True of false: Britain owns Australia?", "Have you ever accidentally said 'thank you' to a cash machine?".  etc.)  Much hilarity ensues.
 
