@@ -66,7 +66,7 @@ NP001 Phase 2 Results.  Starts by saying this trial was negative.  NP001 is a ph
 
 ### Summary
 
-Here are a few points from today's talk that stood out to me
+Here are a few points from today's talks that stood out to me
 
 1: Angela Genge's comment that half of all ALS patients with SOD1 mutations entering clinical trials, had no family history.  I.e. family history may not be a reliable marker of genetic causes.
 
