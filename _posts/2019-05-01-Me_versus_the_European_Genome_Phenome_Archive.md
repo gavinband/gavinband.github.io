@@ -35,10 +35,10 @@ To do this, it turned out I had to write:
 
 i.e. 15 XML files in total.
 
-Writing these XML files is not much fun.  It's not any fun at all*   But trust me, it is still more fun than any of
+Writing these XML files is not much fun.  It's not any fun at all*.   But trust me, it is still more fun than any of
 the other processes that I told you to ignore.  And hey, you didn't see Hercules complaining, did you?
 
-<small>*except perhaps for the perverse pleasure
+<small>*except perhaps for the perverse thrill
 that you get when your XML <em>finally goes in successfully</em>.  Or is that just me?</small>
 
 ### What to ignore
