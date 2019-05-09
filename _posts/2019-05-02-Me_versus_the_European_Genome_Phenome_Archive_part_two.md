@@ -75,8 +75,9 @@ You now upload all these files to your ega box. For large directories of files, 
 files are all in a local `EGAS0000XXXXXX` folder:
 
 ```
-$ ncftpput -u <ega-box-XXX> -p <password> ftp.ebi.ac.uk ./ /
+$ ncftpput -u <ega-box-XXX> -p <password> -R ftp.ega.ebi.ac.uk /EGAS0000XXXXXX/ ./EGAS0000XXXXXX/
 ```
+Where `-R` specifies recursive mode, and it's `ncftpput [options] host remotedir localdir`.
 So what you've got now on the ftp site is:
 ```
 EGAS0000XXXXXX/
