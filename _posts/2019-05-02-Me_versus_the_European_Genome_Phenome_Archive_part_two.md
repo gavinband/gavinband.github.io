@@ -334,7 +334,7 @@ Yes, that's a lot of stuff to read but you didn't hear Hercules complaining, did
 
 The EGA, let's be honest, is fighting back.  Although we've navigated its network of complicated XML schema, it has brought
 to bear stringent rules that confound our expectations, and is trying to annoy us by pretending our data isn't even there.
-This is as good a time as any to give up - to choose life, say, or to choose to go and watch a colour TV, or to choose [option 1 or 2]({{ site.baseurl }}{% post_url
+This is as good a time as any to give up - to choose life, say, or to choose to go and watch a colour TV, or to go back and choose [option 1 or 2]({{ site.baseurl }}{% post_url
 2019-05-01-Me_versus_the_European_Genome_Phenome_Archive %}).  But I'm not going to.  I'm going to defeat the beast, and I'm
 going to have a good moan/gloat about it on my blog in the next post.
 
