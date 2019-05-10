@@ -221,15 +221,6 @@ code read all the `.md5` files, so that you can put the md5 values in the XML.
 
 Should be straightforward. I'll leave it to you.
 
-### Submitting many analyses
-
-*Important!* If you ultimately want to submit several datasets - like I do - that implies you have
-to also split up your analysis XMLs so that you submit one per dataset.
-
-This is because the dataset XMLs we'll submit later refer, not to the samples, but to the analyses
-we've submitted. In my data I want one study, 6 datasets, so I'm generating 6 files of analyses
-instead of one.
-
 ### But what if I don't have CRAM files.
 
 Oh. Well, as it turns out there are lots of different stuff that can be submitted. As the
@@ -333,11 +324,13 @@ Yes, that's a lot of stuff to read but you didn't hear Hercules complaining, did
 
 ## How goeth the quest?
 
-The EGA, let's be honest, is fighting back.  Although we've navigated its network of complicated XML schema, it has brought
-to bear stringent rules that confound our expectations, and is trying to annoy us by pretending our data isn't even there.
-This is as good a time as any to give up - to choose life, say, or to choose to go and watch a colour TV, or to go back and choose [option 1 or 2]({{ site.baseurl }}{% post_url
-2019-05-01-Me_versus_the_European_Genome_Phenome_Archive %}).  But I'm not going to.  I'm going to defeat the beast, and then I'm
-going to have a good moan/gloat about it on my blog.
+The EGA, let's be honest, is fighting back. Although we've navigated its network of complicated XML
+schema, it has brought to bear stringent rules that confound our expectations, and is trying to
+annoy us by pretending our data isn't even there. This is as good a time as any to give up - to
+choose life, say, or to choose to go and watch a colour TV, or to go back and choose [option 1 or
+2]({{ site.baseurl }}{% post_url 2019-05-01-Me_versus_the_European_Genome_Phenome_Archive %}). But
+I'm not going to. I'm going to defeat the beast, and then I'm going to have a good moan/gloat about
+it on my blog.
 
 
 
