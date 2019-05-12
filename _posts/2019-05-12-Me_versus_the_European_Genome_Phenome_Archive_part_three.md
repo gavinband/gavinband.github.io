@@ -10,8 +10,8 @@ sample samples]({{ site.baseurl }}{% post_url
 2019-05-01-Me_versus_the_European_Genome_Phenome_Archive %}), and an XML file that [registers an
 analysis]({{ site.baseurl }}{% post_url
 2019-05-02-Me_versus_the_European_Genome_Phenome_Archive_part_two %}) (i.e. that lists all the
-actual data files). And you've uploaded all your files to your FTP inbox and you've run them
-through the test service, and it responded without any errors.
+actual data files). And you've uploaded all your files to your FTP inbox, and you've run them
+through the test service, and it all responded without any errors.
 
 Right?
 
@@ -34,23 +34,23 @@ $ curl \
 https://www.ebi.ac.uk/ena/submit/drop-box/submit/
 ```
 
-and capturing the response, which is another XML file, and parsing it to get the accessions. But
+and capturing the response, which is another XML file, and parsing it to get the accessions, but
 there's an easier way.
 
-### The easier way
+### The easier way to submit
 
 Go to [this EGA Webin site](https://www.ebi.ac.uk/ena/submit/webin/) and log
 in. You'll see a 'Submit' tag and a 'Submit XML files' button. They give us a way to submit the XML
 files and get useful results back.
 
-Start by choosing your submission xml (`submit.xml`) and your study xml (`study.xml`) from [this
-post]({{ site.baseurl }}{% post_url 2019-05-01-Me_versus_the_European_Genome_Phenome_Archive %}).
+Start by choosing your submission xml (`submit.xml`) and your study xml (`study.xml`) described in
+[part one]({{ site.baseurl }}{% post_url 2019-05-01-Me_versus_the_European_Genome_Phenome_Archive %}).
 Submit them. You get back a tab-separated file giving you the accession for your study, and
 also a receipt file.  Save them.
 
 Now do the same for each of the 'samples' and 'analysis' XMLs in turn. (To do this you have to
-unselect the XML you've already selected. I couldn't see a way to do this, but reloading the page
-seems to work.)  You get back more accessions.  Save them.
+unselect the XML you've already selected. I couldn't see a way to do this except by `Ctrl-R` reloading
+the page, but that seems to work.)  You get back more accessions.  Save them.
 
 So now you've got files listing the accessions - one for the study, one for each of the samples,
 and importantly, one for each of the analysis objects (files) in your dataset.
@@ -61,7 +61,7 @@ This is now pretty straightforward.  You basically want this:
 
 ```
 <DATASETS>
-    <DATASET alias="Submission of my cool datasets submission for " center_name="<center name>" broker_name="EGA">
+    <DATASET alias="My cool datasets" center_name="<center name>" broker_name="EGA">
         <TITLE>My cool dataset</TITLE>
         <DATASET_TYPE>Whole genome sequencing</DATASET_TYPE>
         <ANALYSIS_REF accession="<accession of first analysis>" />
@@ -81,12 +81,18 @@ This is now pretty straightforward.  You basically want this:
 </DATASETS>
 ```
 
-Repeat the `<DATASET>` for as many datasets as you have.
+Repeat the `<DATASET>` for as many datasets* as you have.
 
-Before writing this you need to know:
+<small>* Given the presence of `<DATASET_TYPE>` in there, I was worried I wouldn't be able to
+include all my desired files in the same dataset. This worry seems to have been unfounded - I
+included a bunch of analysis specifying CRAM files, and and analysis specifying the VCF of
+microarray genotypes and the README file and two annotation files, and it seems to work.</small>
+
+Before writing the XML above you need to know:
 
 - the accession of all your analyses (from the submission step above)
 - and the accession of your data access policy.  Here I ran into a couple of issues:
+
 
 ### Policy issues 
 

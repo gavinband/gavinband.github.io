@@ -124,7 +124,7 @@ For the CRAM files we're working with, it also has to contain
 - a reference to the relevant sample - as in the sample XML we [submitted before]().  (This is where the 'alias' for the sample is used.)
 - details on the reference used for alignment.  This includes the name and accession of the reference, and those of all the reference sequence names.
 
-## The analysis XML
+### The analysis XML
 
 For a test with one sample I'm going to assume:
 
@@ -196,7 +196,8 @@ If not there'll be errors.
 
 At this point I ran into a problem. For this XML to go in, the relevant encrypted (`.gpg`) files
 have to be on the FTP site in the specified locations (though the md5sums don't seem to actually have
-to be right - don't know why, but assume this is checked later).  However
+to be right - don't know why, but I imagine this is checked later).  However, as I mentioned
+in my earlier post,
 
 *There's a delay in the system recognising what you've put on the FTP site.*
 

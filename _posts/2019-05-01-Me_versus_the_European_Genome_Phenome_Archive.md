@@ -105,12 +105,7 @@ Why?  There are two reasons.
 straight away*. It appears to take overnight to do it - no doubt it's a CRON job or some other such thing
 running in the wee hours.
 
-So let's say you're trying to get stuff uploaded and you suddenly realise a file in one of your
-directories is named slightly wrong (like I did), or that you'd rather the README files was named
-_this_ way instead of _that_ way (like I did), or that actually you want these files to appear
-together in the same directory instead of in seperate ones (like I did). Each of these changes will
-cost you 24 hours of waiting around before you can make any progress. You'll probably find it
-frustrating (like I did).
+As I'll describe later, this can lead to substantial delays.
 
 ## Get on with it
 
