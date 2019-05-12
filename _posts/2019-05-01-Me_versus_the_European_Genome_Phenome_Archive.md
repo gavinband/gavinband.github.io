@@ -53,7 +53,7 @@ generally subscribe to.
 </small>
 
 <small>†except perhaps for that moment when your XML <em>finally goes in successfully</em>.
-That's fun.  Does that make up for the time spent on it?  No.</small>
+That's fun.
 
 ### What to ignore
 
