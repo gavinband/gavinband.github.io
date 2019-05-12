@@ -22,7 +22,7 @@ to do this because it's the One True Way*.
 
 ## Where to put the data
 
-The basic trick is to *place files in absolute paths on the FTP site that are the paths you want the data users to download*  *.
+The basic trick is to place files in absolute paths on the FTP site that are the paths you want the data users to download.
 
 <small>* This may seem obvious.  But my initial instinct was to put data in well-organised subfolders of my
 choosing, but that wouldn't be exposed to data users.  Turns out that won't work.</small>

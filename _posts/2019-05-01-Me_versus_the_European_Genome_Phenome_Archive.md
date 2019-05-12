@@ -10,7 +10,7 @@ Hydra](https://en.wikipedia.org/wiki/Labours_of_Hercules#Second_labour:_Lernaean
 have to interface with each head using its own set of API endpoints. He just lopped them off.
 
 Sadly, things are more complex these days. Any hero(in)es planning to submit data to the [European
-Genome-Phenome Archive](https://ega-archive.org) (the EGA) will face a creature of obnoxious
+Genome-Phenome Archive](https://ega-archive.org) (the EGA) will face a creature of terrifying
 proportions.   Here are some options for dealing with this:
 
 1. Don't bother.  Data release is not that important.  (recommended*)
@@ -99,8 +99,7 @@ that your data release will occupy.  And then never change it.
 
 Why?  There are two reasons.
 
-1. It'll stop you faffing about with renaming files, which is what I do whenever I change my mind
-about how something looks.
+1. It'll stop you faffing about with renaming files later.
 
 2. The EGA submission system *does not recognise changes to its FTP inboxes
 straight away*. It appears to take overnight to do it - no doubt it's a CRON job or some other such thing
@@ -115,7 +114,7 @@ frustrating (like I did).
 
 ## Get on with it
 
-Curiously enough, the only way to defeat this monster is to submit to it.
+Riiight...curiously enough, the only way to defeat this monster is to submit to it.
 
 ### Submission XML
 
@@ -206,7 +205,7 @@ https://www-test.ebi.ac.uk/ena/submit/drop-box/submit/
 
 If this works, you'll get a reply containing `<INFO>Submission has been committed.</INFO>`.
 
-**Note**: Make a note of the EGA ID that you received.  This might be important later.  (But we're only testing right now.)
+**Note**: In a real run you would make a note of the EGA ID that you received, as it's important later. But we're only testing right now.
 
 You can of course add more attributes to the study - I think they are arbitrary tag/value pairs -
 but it's not clear what they end up being used for. In my study, I added a couple of citations
@@ -260,7 +259,7 @@ identifier&gt;' should be enough. For you, you might need to generate something 
 For each sample, it turns out you must also provide:
 
 -  a taxon id (that's the `<TAXON_ID>9606</TAXON_ID>` bit).
-- a `subject_id` or `donor_id` (I don't know what the difference is).
+- a `subject_id` or `donor_id` (I don't know if there's a difference between these - I used `subject_id` as above).
 - a `sex` or `gender`
 - a 'phenotype'
 
@@ -283,7 +282,7 @@ $  curl \
 https://www-test.ebi.ac.uk/ena/submit/drop-box/submit/
 ```
 
-<small>* Is the genome a phenotype?  Yes, a 3.2 billion-dimensional one.</small>
+<small>* Is the genome a phenotype?  Yes, it's a 3.2 billion-dimensional one.</small>
 
 ## Submitting lots of samples
 
@@ -297,8 +296,7 @@ $ curl \
 https://www-test.ebi.ac.uk/ena/submit/drop-box/submit/
 ```
 
-<small>* Also, I reckon
-you'll want to start keeping a log of the
+<small>* Also, I reckon you'll want to start keeping a log of the
 result of these transactions - e.g. by piping the output into a file,
 `curl ... > sample_result.xml`.  But for the real run I found it easier to use
 the [Webin portal](https://www.ebi.ac.uk/ena/submit/webin/) to make getting the output easier.</small>
@@ -306,8 +304,8 @@ the [Webin portal](https://www.ebi.ac.uk/ena/submit/webin/) to make getting the 
 
 ## The journey continues
 
-Congratulations intrepid adventurer! You have survived the first encounter. (Admittedly, we're
-still in the [monster simulator](https://www-test.ebi.ac.uk/ena/submit/drop-box/swagger-ui.html),
+Congratulations! You have survived the first encounter. (Admittedly, we're
+still using the [test monster](https://www-test.ebi.ac.uk/ena/submit/drop-box/swagger-ui.html),
 but hey.)
 
 In [part two]({{ site.baseurl }}{% post_url

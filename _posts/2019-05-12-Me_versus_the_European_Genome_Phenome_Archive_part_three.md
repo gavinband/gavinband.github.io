@@ -5,8 +5,6 @@ date:   2019-05-12
 categories: bioinformatics data
 ---
 
-## The story so far
-
 If you've been following these posts so far, you'll have XML files that [register a study and
 sample samples]({{ site.baseurl }}{% post_url
 2019-05-01-Me_versus_the_European_Genome_Phenome_Archive %}), and an XML file that [registers an
