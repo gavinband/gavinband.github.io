@@ -332,6 +332,5 @@ choose life, say, or to choose to go and watch a colour TV, or to go back and ch
 I'm not going to. I'm going to defeat the beast, and then I'm going to have a good moan/gloat about
 it on my blog.
 
-
-
+(Although [in practice...]({{ site.baseurl }}{% post_url 2019-05-11-The EGA strikes back %}))
 
