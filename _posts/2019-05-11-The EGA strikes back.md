@@ -29,7 +29,8 @@ you is that on Thursday I discovered one of my files was wrongly named on the EG
 that wasted 24 hours, and then yesterday I decided one of the files should be named slightly more
 consistently with another file, and that wasted another 24 hours, and if I don't get this done by
 Monday then I shan't be able to do all the other things I have to do next week, and if I don't do
-it today then I shan't be able to play with you tomorrow either.  So, what I'm doing now is
+it today then I shan't be able to play with you tomorrow either. So, [what I'm doing now is]({{
+site.baseurl }}{% post_url 2019-05-12-Me_versus_the_European_Genome_Phenome_Archive_part_three %}),
 
 (He goes back to his game.)
 
