@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Me vs. the European Genome-Phenome Archive"
+title:  "Me vs. EGA"
 date:   2019-05-01
 categories: bioinformatics data
 ---

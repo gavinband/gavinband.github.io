@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Me vs. the European Genome-Phenome Archive part 2b: The EGA strikes back"
+title:  "Me vs. the EGA part 2b: The EGA strikes back"
 date:   2019-05-01
 categories: bioinformatics data
 ---
