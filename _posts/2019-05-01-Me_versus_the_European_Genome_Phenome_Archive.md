@@ -23,23 +23,37 @@ proportions.   Here are some options for dealing with this:
 ## The perils ahead
 
 More specifically I'm going to show you how I submitted our genome sequencing data to the EGA.
-What I've got is 6 folders, each containing ~50 CRAM files, a VCF file of genotypes, and a couple of annotation files.
+What I've got is 6 folders, each containing ~50 CRAM files, a VCF file of genotypes from
+array typing, and a couple of annotation files.
 On the EGA I want these to appear as one study containing 6 datasets.
 
-To do this, it turned out I had to write:
+To do this I had to write:
 - one submission XML (reused at each step)
 - one study XML describing the study
-- one samples XML listing all the samples
-- six 'analysis' XMLs - one per directory, listing all the CRAM files
-- six 'dataset' XMLs - listing all the files in each dataset
+- one samples XML listing all the samples (actually I split this into two, one for sequenced samples and one for microarray samples).
+- an 'analysis' XML, listing all the CRAM files and all the other files.
+- a 'dataset' XMLs, specifying how all the analysis files fit into the six datasets.
 
-i.e. 15 XML files in total.
+i.e. 6 XML files in total*.
 
-Writing these XML files is not much fun.  It's not any fun at all*.   But trust me, it is still more fun than any of
-the other processes that I told you to ignore.  And hey, you didn't see Hercules complaining, did you?
+Actually, it turned out I also had to write
 
-<small>*except perhaps for the perverse thrill
-that you get when your XML <em>finally goes in successfully</em>.  Or is that just me?</small>
+- a data access committee XML, and
+- a policy XML
+
+Writing all these XML files is not much fun.  It's not any fun at all†. 
+But hey, you didn't see Hercules complaining, did you?
+
+<small>* Actually, I also had to register a new data access committee and a
+new data access policy, even though we already have a
+[data access committee](https://www.ebi.ac.uk/ega/dacs/EGAC00000000002) and a
+data access policy.  They were among the first ones created.  I think the explanation is that
+these objects are old, and hence should be ignored, but it's not a view I would
+generally subscribe to.
+</small>
+
+<small>†except perhaps for that moment when your XML <em>finally goes in successfully</em>.
+That's fun.  Does that make up for the time spent on it?  No.</small>
 
 ### What to ignore
 
@@ -49,7 +63,7 @@ portal](https://ega-archive.org/submitter-portal/#/), the [other submitter
 portal](https://www.ebi.ac.uk/ena/submit/sra/#home), and the [Excel spreadsheet-based submission
 process](https://ega-archive.org/submission/array_based/metadata). Ignore the [JSON-based REST
 API](https://ega-archive.org/submission/programmatic_submissions/submitting-metadata), no matter
-how tempting. Read the docs if you want to but beware that they are all subtly misleading.
+how tempting. Read the docs if you want to but beware that they all seem to be subtly misleading.
 
 I am here to show you the One True Way*.
 
@@ -64,16 +78,42 @@ We will use that for our actual submission.  But since that site doesn't seem to
 have a version for testing, for most of this post we'll use `curl` to submit programmatically
 to the test service instead.
 
-
 ### What you will need
 
 Your weapons are: an EGA submission account (presumably called something like `ega-box-XXX` with an associated
-password). And you need to know the 'center name' associated with that account. For me, the center
+password). And you need to know the 'center name' associated with that account.  For me, the center
 name is "MalariaGEN". If you don't have these things, or don't know them, your adventure is over.
 [Register an account](https://ega-archive.org/submission-form.php) or [contact the EGA helpdesk](mailto:helpdesk@ega-archive.org)
-about your existing account and then come back and see me.  (Or reconsider Option 1?)
+about your existing account* and then come back and see me.  (Or reconsider Option 1?)
 
-## The journey begins
+<small>* If you've got an existing data access committee / policy you want to use, now's a good
+time to also ask the EGA helpdesk what their accessions are. There's a page listing
+[DACs](https://www.ebi.ac.uk/ega/submission/data_access_committee) but not one listing policies.
+But if you're creating new ones, this doesn't matter.</small>
+
+### A note on filenames
+
+The EGA seems to careth not what you call your files, but you should care. In fact what you should do,
+right now and before you do anything else, is to write down the exact file names and file structure
+that your data release will occupy.  And then never change it.
+
+Why?  There are two reasons.
+
+1. It'll stop you faffing about with renaming files, which is what I do whenever I change my mind
+about how something looks.
+
+2. The EGA submission system *does not recognise changes to its FTP inboxes
+straight away*. It appears to take overnight to do it - no doubt it's a CRON job or some other such thing
+running in the wee hours.
+
+So let's say you're trying to get stuff uploaded and you suddenly realise a file in one of your
+directories is named slightly wrong (like I did), or that you'd rather the README files was named
+_this_ way instead of _that_ way (like I did), or that actually you want these files to appear
+together in the same directory instead of in seperate ones (like I did). Each of these changes will
+cost you 24 hours of waiting around before you can make any progress. You'll probably find it
+frustrating (like I did).
+
+## Get on with it
 
 Curiously enough, the only way to defeat this monster is to submit to it.
 
