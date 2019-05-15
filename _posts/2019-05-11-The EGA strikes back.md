@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Me vs. the EGA part 2b: The EGA strikes back"
-date:   2019-05-01
+date:   2019-05-11
 categories: bioinformatics data
 ---
 

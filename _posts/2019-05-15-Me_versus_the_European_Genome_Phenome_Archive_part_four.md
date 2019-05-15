@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Me vs. the EGA part 4: losing again"
-date:   2019-05-12
+date:   2019-05-15
 categories: bioinformatics data
 ---
 

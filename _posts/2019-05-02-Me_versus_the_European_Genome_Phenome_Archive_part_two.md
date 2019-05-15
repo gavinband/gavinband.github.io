@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Me vs. the EGA part 2: uploading data"
-date:   2019-05-01
+date:   2019-05-02
 categories: bioinformatics data
 ---
 
