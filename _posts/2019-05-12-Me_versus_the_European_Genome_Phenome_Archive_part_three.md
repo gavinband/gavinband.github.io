@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Me vs. the EGA part 3: win"
+title:  "Me vs. the EGA part 3: winning"
 date:   2019-05-12
 categories: bioinformatics data
 ---
